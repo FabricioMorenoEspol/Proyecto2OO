@@ -1,3 +1,5 @@
+package com.mycompany.proyecto2poo;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -8,22 +10,22 @@
  * @author Davinsonm
  */
 public class Copas {
-    private int Año,golesAnotados,partidosJugados;
+    private int Anio,golesAnotados,partidosJugados;
     private String Asistencia;
     private String[] puestosPaises=new String[4];
     
-    public Copas(int Año,int golesAnotados,int partidosJugados,String Asistencia,String[]puestosPaises){
-        this.Año=Año;
+    public Copas(int Anio,int golesAnotados,int partidosJugados,String Asistencia,String[]puestosPaises){
+        this.Anio=Anio;
         this.golesAnotados=golesAnotados;
         this.partidosJugados=partidosJugados;
         this.Asistencia=Asistencia;
         this.puestosPaises=puestosPaises;
     }
-    public int getAño(){
-        return this.Año;
+    public int getAnio(){
+        return this.Anio;
     }
-    public void setAño(int año){
-        this.Año=año;
+    public void setAnio(int anio){
+        this.Anio=anio;
     }
     public int getgolesAnotados(){
         return this.golesAnotados;

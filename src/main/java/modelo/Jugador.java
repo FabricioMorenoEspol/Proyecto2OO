@@ -1,4 +1,7 @@
 package modelo;
+
+import java.io.Serializable;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -8,23 +11,19 @@ package modelo;
  *
  * @author Davinsonm
  */
-public class Jugador {
-    private String Nombre,nombreJugador,nombreEquipo,directorTecnico,NombreImg;
+public class Jugador implements Serializable{
+    private String nombreJugador,nombreEquipo,directorTecnico,NombreImg;
     private int numeroCamiseta;
-    public Jugador(String nombre,String nombreJugador,String nombreEquipo,int numeroCamiseta, String DirectorTecnico,String NombreImg  ){
-        this.Nombre=nombre;
+    public Jugador(String nombreJugador,String nombreEquipo,int numeroCamiseta, String DirectorTecnico,String NombreImg ){
+
         this.nombreJugador=nombreJugador;
         this.nombreEquipo=nombreEquipo;
         this.numeroCamiseta=numeroCamiseta;
         this.directorTecnico=DirectorTecnico;
         this.NombreImg=NombreImg;
+
     }
-    public String getNombre(){
-        return this.Nombre;
-    }
-    public void setNombre(String nombre){
-        this.Nombre=nombre;
-    }
+
     public String getnombrejugador(){
         return this.nombreJugador;
     }
@@ -55,4 +54,20 @@ public class Jugador {
     public void setNombreImg(String nomImg){
         this.NombreImg=nomImg;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || o.getClass() != this.getClass()) {
+            return false;
+        } else {
+            Jugador jug = (Jugador) o;
+            return jug.getnombrejugador().equals(this.nombreJugador);
+        }
+
+    }
+    
 }

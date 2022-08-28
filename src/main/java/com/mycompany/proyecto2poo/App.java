@@ -15,10 +15,13 @@ public class App extends Application {
 
     private static Scene scene;
     private static Stage stage;
+    public static String pathImages = "src/main/resources/images/";
+    public static String pathTxt = "src/main/resources/filesTxt/";
+    public static String pathImagesBanderas = "src/main/resources/banderas/";
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("Ventana1.fxml"));
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("VentanaApp.fxml"));
         Parent root = loader.load();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -31,5 +34,6 @@ public class App extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    
 
 }

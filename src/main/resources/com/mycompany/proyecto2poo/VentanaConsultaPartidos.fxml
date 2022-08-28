@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -8,8 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyecto2poo.VentanaConsultaPartidosController">
    <children>
       <Label prefHeight="92.0" prefWidth="304.0" text="CONSULTA DE PARTIDOS" textFill="#0d3940">
          <font>
@@ -23,13 +23,13 @@
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label prefHeight="16.0" prefWidth="82.0" text="Fase:" />
-                        <ComboBox prefWidth="150.0" />
+                        <ComboBox fx:id="faseCb" prefWidth="150.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label prefHeight="16.0" prefWidth="87.0" text="Equipo 1: " />
-                        <ComboBox prefWidth="150.0" />
+                        <ComboBox fx:id="equipo1Cb" prefWidth="150.0" />
                      </children>
                   </HBox>
                </children>
@@ -46,14 +46,14 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="16.0" prefWidth="83.0" text="Grupos:" />
-                        <ComboBox prefWidth="150.0" />
+                        <Label fx:id="labelGrupos" prefHeight="16.0" prefWidth="83.0" text="Grupos:" />
+                        <ComboBox fx:id="gruposCb" prefWidth="150.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label prefHeight="16.0" prefWidth="83.0" text="Equipo 2: " />
-                        <ComboBox prefWidth="150.0" />
+                        <ComboBox fx:id="equipo2CB" prefWidth="150.0" />
                      </children>
                   </HBox>
                </children>
@@ -66,6 +66,13 @@
             <Insets bottom="25.0" />
          </VBox.margin>
       </HBox>
-      <Button mnemonicParsing="false" style="-fx-background-color: #135668;" text="CONSULTAR" textFill="#f6fdff" />
+      <Button fx:id="consultarBtn" mnemonicParsing="false" style="-fx-background-color: #135668;" text="CONSULTAR" textFill="#f6fdff">
+         <VBox.margin>
+            <Insets bottom="15.0" />
+         </VBox.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <VBox fx:id="infoPartidoVbox" prefHeight="200.0" prefWidth="100.0" />
    </children>
 </VBox>

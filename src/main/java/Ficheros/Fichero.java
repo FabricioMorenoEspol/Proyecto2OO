@@ -79,7 +79,7 @@ public class Fichero implements Serializable{
                 String nombreEquipo = info[2];
                 int numeroCamiseta = Integer.valueOf(info[5]);
                 String directorTecnico = info[3];
-                String NombreImg = info[2] + ".jpg";
+                String NombreImg = info[6] + ".jpg";
                 
                 Jugador jugador = new Jugador(nombreJugador, nombreEquipo, numeroCamiseta, directorTecnico, NombreImg);
                 jugadores.add(jugador);

@@ -18,6 +18,7 @@ import javafx.stage.Stage;
  * @author fabricio
  */
 public class VentanaConsultaCopasMundiales implements VentanaInicializable{
+    public static Stage stage;
     @Override
     public void cargarVentana(String fxmlUrl) throws ErrorChecked{
      try {
@@ -25,7 +26,7 @@ public class VentanaConsultaCopasMundiales implements VentanaInicializable{
             FXMLLoader loader = new FXMLLoader(App.class.getResource(fxmlUrl));
             Parent root = loader.load();
             Scene scene = new Scene(root,1000,1000);
-            Stage stage = new Stage();
+            stage = new Stage();
             
             stage.setScene(scene);
             stage.setTitle("Consulta de copas mundiales");

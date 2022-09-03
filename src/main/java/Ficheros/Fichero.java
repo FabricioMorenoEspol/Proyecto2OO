@@ -96,7 +96,7 @@ public class Fichero implements Serializable {
 
     public static void serializarListaJugadores(ArrayList<Jugador> jugadores) {
 
-        try ( FileOutputStream fs = new FileOutputStream("SerializacionJugadores.txt");  ObjectOutputStream os = new ObjectOutputStream(fs);) {
+        try ( FileOutputStream fs = new FileOutputStream("SerializacionJugadores.bin");  ObjectOutputStream os = new ObjectOutputStream(fs);) {
             os.writeObject(jugadores);
 
         } catch (Exception e) {

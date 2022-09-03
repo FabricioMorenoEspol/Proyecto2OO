@@ -21,7 +21,7 @@ import java.util.Arrays;
  *
  * @author fabricio
  */
-public class Fichero implements Serializable{
+public class Fichero implements Serializable {
 
     public static ArrayList<Partido> leerDatosPartidos(String nombreArchivo) {
         ArrayList<Partido> partidos = new ArrayList<>();
@@ -80,7 +80,7 @@ public class Fichero implements Serializable{
                 int numeroCamiseta = Integer.valueOf(info[5]);
                 String directorTecnico = info[3];
                 String NombreImg = info[6] + ".jpg";
-                
+
                 Jugador jugador = new Jugador(nombreJugador, nombreEquipo, numeroCamiseta, directorTecnico, NombreImg);
                 jugadores.add(jugador);
 
@@ -95,7 +95,7 @@ public class Fichero implements Serializable{
     }
 
     public static void serializarListaJugadores(ArrayList<Jugador> jugadores) {
-        
+
         try ( FileOutputStream fs = new FileOutputStream("SerializacionJugadores.txt");  ObjectOutputStream os = new ObjectOutputStream(fs);) {
             os.writeObject(jugadores);
 
@@ -103,7 +103,33 @@ public class Fichero implements Serializable{
             System.out.println("Error al serializar los datos de jugadores");
         }
 
-        
+    }
+
+    public static ArrayList<Copas> leerDatosCopasMundiales(String nombreArchivo) {
+
+        ArrayList<Copas> copasMundiales = new ArrayList<>();
+
+        try ( FileReader reader = new FileReader(new File(nombreArchivo), StandardCharsets.UTF_8);  BufferedReader bf = new BufferedReader(reader)) {
+            bf.readLine();
+
+            String linea = bf.readLine();
+            while (linea != null) {
+                String[] info = linea.trim().split(",");
+                int Anio = Integer.valueOf(info[0].trim());
+                int golesAnotados = Integer.valueOf(info[6].trim());
+                int partidosJugados = Integer.valueOf(info[8].trim());
+                String Asistencia = info[9];
+                String[] puestosPaises = new String[]{info[2], info[3], info[4], info[5]};
+                Copas copa = new Copas(Anio, golesAnotados, partidosJugados, Asistencia, puestosPaises);
+                copasMundiales.add(copa);
+                
+                linea = bf.readLine();
+            }
+        } catch (Exception err) {
+            System.out.println("Error al leer el archivo");
+
+        }
+        return copasMundiales;
     }
 
 }
